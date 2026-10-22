@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c1530">
+  <meta name="description" content="하루에 하나씩, 비밀번호로 열어 보는 오늘의 말">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>오늘의 한마디</title>
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./plan.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <div class="glow glow-a" aria-hidden="true"></div>
+  <div class="glow glow-b" aria-hidden="true"></div>
+  <main class="wrap">
+    <div class="eyebrow"><span class="star" aria-hidden="true">✦</span> FOR YOUR EVERY DAY</div>
+    <header class="page-title">
+      <h1>오늘의 한마디<span class="period">.</span></h1>
+      <p>하루에 하나씩, 당신을 위한 작은 메시지</p>
+    </header>
+
+    <section class="card" aria-labelledby="card-title">
+      <div class="card-top">
+        <div class="date-label"><span class="date-icon" aria-hidden="true">◷</span><span id="today-label">한국시간 기준</span></div>
+        <span class="time-badge">KST · 00:00 갱신</span>
+      </div>
+
+      <div id="login-view">
+        <div class="lock-illustration" aria-hidden="true">✧</div>
+        <h2 id="card-title">오늘의 메시지가 기다리고 있어요</h2>
+        <p class="intro">비밀번호를 입력하면 오늘의 문구만 복호화해 보여 줍니다.</p>
+        <form id="login-form" autocomplete="off">
+          <label for="password">비밀번호</label>
+          <div class="password-wrap">
+            <input id="password" name="password" type="password" placeholder="비밀번호를 입력하세요" autocomplete="current-password" required spellcheck="false" autofocus>
+            <button type="button" id="toggle-visibility" class="icon-button" aria-label="비밀번호 표시">보기</button>
+          </div>
+          <button id="unlock-button" class="primary-button" type="submit">오늘의 말 열기 <span aria-hidden="true">→</span></button>
+          <p id="login-status" class="status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <div id="message-view" hidden>
+        <div class="quote-mark" aria-hidden="true">“</div>
+        <div class="message-frame"><p id="message-text" class="message-text" aria-live="polite"></p></div>
+        <div class="message-bottom"><span>ONLY FOR TODAY</span><button id="lock-button" class="text-button" type="button">다시 잠그기 <span aria-hidden="true">↗</span></button></div>
+      </div>
+    </section>
+
+    <div class="footer-bar">
+      <span id="next-label">다음 메시지는 한국시간 자정에</span>
+      <span id="countdown" aria-label="다음 자정까지 남은 시간">--:--:--</span>
+    </div>
+    <footer class="footer-note">하루가 바뀌면 같은 페이지에서 자동으로 다음 메시지를 불러옵니다.</footer>
+  </main>
+</body>
+</html>
